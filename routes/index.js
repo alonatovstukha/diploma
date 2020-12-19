@@ -29,6 +29,11 @@ let hourDataDevice2;
 let hourDataDevice3;
 let hourDataDevice4;
 
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+
+
 
 // SerialPort.list().then(
 //   ports => ports.forEach(console.log),
