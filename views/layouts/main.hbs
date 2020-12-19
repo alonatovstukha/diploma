@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {{!-- <meta http-equiv="refresh" content="60"> --}}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css"
+    integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;300&display=swap"
+    rel="stylesheet">
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+  {{!-- GOOGLE MAPS --}}
+  <script src="https://maps.googleapis.com/maps/api/js"></script>
+  <script src="/scripts/gmaps.js"></script>
+
+  <link rel="stylesheet" href="/css/style.css">
+
+  <title>Diploma</title>
+
+</head>
+
+<body>
+  {{> _header}}
+  <div class="container">
+    {{{body}}}
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <script src="/scripts/chart.js/dist/Chart.js"></script>
+
+  <script src="/scripts/dashboard.js"></script>
+  <script src="/scripts/contacts.js"></script>
+
+{{!-- HOUR --}}
+  <script>
+
+    let lineHourDevice1Chart = new Chart(document.getElementById('lineHourChartDevice1'), {
+      type: 'line',
+      data: {
+        labels: ['00', '01', '02', '03', '04', '05', '06', '07',
+          '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', 
+          '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32',
+           '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', 
+           '47', '48', '49', '50', '51', '52', '53', '54', '55', '56', '57', '58', '59'],
+        datasets: [
+          {
+            label: 'Кількість спожитої енергії за хвилину',
+            
+            borderColor: '#1cd5ed',                
+            borderWidth: 1,
+            fill:false,
+            lineTension: 0,
+            data: [
+            {{ hourDataDevice1_0min }},{{ hourDataDevice1_1min }},{{ hourDataDevice1_2min }},{{ hourDataDevice1_3min }},{{ hourDataDevice1_4min }},
+            {{ hourDataDevice1_5min }},{{ hourDataDevice1_6min }},{{ hourDataDevice1_7min }},{{ hourDataDevice1_8min }},{{ hourDataDevice1_9min }},
+            {{ hourDataDevice1_10min }},{{ hourDataDevice1_11min }},{{ hourDataDevice1_12min }},{{ hourDataDevice1_13min }},{{ hourDataDevice1_14min }},
+            {{ hourDataDevice1_15min }},{{ hourDataDevice1_16min }},{{ hourDataDevice1_17min }},{{ hourDataDevice1_18min }},{{ hourDataDevice1_19min }},
+            {{ hourDataDevice1_20min }},{{ hourDataDevice1_21min }},{{ hourDataDevice1_22min }},{{ hourDataDevice1_23min }},{{ hourDataDevice1_24min }},
+            {{ hourDataDevice1_25min }},{{ hourDataDevice1_25min }},{{ hourDataDevice1_27min }},{{ hourDataDevice1_28min }},{{ hourDataDevice1_29min }},
+            {{ hourDataDevice1_30min }}, {{ hourDataDevice1_31min }},{{ hourDataDevice1_32min }},{{ hourDataDevice1_33min }},{{ hourDataDevice1_34min }},
+            {{ hourDataDevice1_35min }},{{ hourDataDevice1_36min }},{{ hourDataDevice1_37min }},{{ hourDataDevice1_38min }},{{ hourDataDevice1_39min }},
+            {{ hourDataDevice1_40min }},{{ hourDataDevice1_41min }},{{ hourDataDevice1_42min }},{{ hourDataDevice1_43min }},{{ hourDataDevice1_44min }},
+            {{ hourDataDevice1_45min }},{{ hourDataDevice1_46min }},{{ hourDataDevice1_47min }},{{ hourDataDevice1_48min }},{{ hourDataDevice1_49min }},
+            {{ hourDataDevice1_50min }},{{ hourDataDevice1_51min }},{{ hourDataDevice1_52min }},{{ hourDataDevice1_53min }},{{ hourDataDevice1_54min }},
+            {{ hourDataDevice1_55min }},{{ hourDataDevice1_56min }},{{ hourDataDevice1_57min }},{{ hourDataDevice1_58min }},{{ hourDataDevice1_59min }}]
+            
+        }
+      ]
+    },
+
+});
+
+  </script>
+
+  {{!-- DAY --}}
+  <script>
+
+    let barDayDevice1Chart = new Chart(document.getElementById('barDayChartDevice1'), {
+      type: 'horizontalBar',
+      data: {
+        labels: ['12:00', '1:00', '2:00', '3:00', '4:00', '5:00', '6:00', '7:00', '8:00',
+          '9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00',
+          '19:00', '20:00', '21:00', '22:00', '23:00'],
+        datasets: [{
+          data: [{{dayDataDevice1_12am}}, {{dayDataDevice1_1am}},{{dayDataDevice1_2am}}, {{dayDataDevice1_3am}},
+    {{dayDataDevice1_4am}}, {{dayDataDevice1_5am}}, {{dayDataDevice1_6am}}, {{dayDataDevice1_7am}}, {{dayDataDevice1_8am}},
+    {{dayDataDevice1_9am}}, {{dayDataDevice1_10am}}, {{dayDataDevice1_11am}}, {{dayDataDevice1_12pm}}, {{dayDataDevice1_1pm}},
+    {{dayDataDevice1_2pm}}, {{dayDataDevice1_3pm}}, {{dayDataDevice1_4pm}}, {{dayDataDevice1_5pm }}, {{dayDataDevice1_6pm}},
+    {{dayDataDevice1_7pm}}, {{dayDataDevice1_8pm}}, {{dayDataDevice1_9pm}}, {{dayDataDevice1_10pm}}, {{dayDataDevice1_11pm}}], 
+    label: 'Кількість спожитої енергії за годину',
+    backgroundColor: [
+              'rgba(245, 7, 7, 0.2)',
+              'rgba(161, 231, 247, 0.2)',
+              'rgba(146, 163, 222, 0.2)',
+              'rgba(175, 146, 222, 0.2)',
+              'rgba(84, 222, 181, 0.2)',
+              'rgba(222, 126, 84, 0.2)',
+              'rgba(68, 223, 235, 0.2)',
+              'rgba(60, 6, 148, 0.2)',
+              'rgba(232, 235, 68, 0.2)',
+              'rgba(142, 245, 7, 0.2)',
+              'rgba(245, 7, 7, 0.2)',
+              'rgba(161, 231, 247, 0.2)',
+              'rgba(146, 163, 222, 0.2)',
+              'rgba(175, 146, 222, 0.2)',
+              'rgba(84, 222, 181, 0.2)',
+              'rgba(222, 126, 84, 0.2)',
+              'rgba(68, 223, 235, 0.2)',
+              'rgba(60, 6, 148, 0.2)',
+              'rgba(232, 235, 68, 0.2)',
+              'rgba(142, 245, 7, 0.2)',
+              'rgba(245, 7, 7, 0.2)',
+              'rgba(161, 231, 247, 0.2)',
+              'rgba(146, 163, 222, 0.2)',
+              'rgba(175, 146, 222, 0.2)'],
+      borderColor: [
+              'rgba(245, 7, 7, 1)',
+              'rgba(161, 231, 247, 1)',
+              'rgba(146, 163, 222, 1)',
+              'rgba(175, 146, 222, 1)',
+              'rgba(84, 222, 181, 1)',
+              'rgba(222, 126, 84, 1)',
+              'rgba(68, 223, 235, 1)',
+              'rgba(60, 6, 148, 1)',
+              'rgba(232, 235, 68, 1)',
+              'rgba(142, 245, 7, 1)',
+              'rgba(245, 7, 7, 1)',
+              'rgba(161, 231, 247, 1)',
+              'rgba(146, 163, 222, 1)',
+              'rgba(175, 146, 222, 1)',
+              'rgba(84, 222, 181, 1)',
+              'rgba(222, 126, 84, 1)',
+              'rgba(68, 223, 235, 1)',
+              'rgba(60, 6, 148, 1)',
+              'rgba(232, 235, 68, 1)',
+              'rgba(142, 245, 7, 1)',
+              'rgba(245, 7, 7, 1)',
+              'rgba(161, 231, 247, 1)',
+              'rgba(146, 163, 222, 1)',
+              'rgba(175, 146, 222, 1)'
+
+      ],
+      borderWidth: 0.5,
+    }]
+    },
+  });
+
+
+    
+  </script>
+
+  {{!-- MONTH --}}
+  <script>
+
+    let barMonthDevice1Chart = new Chart(document.getElementById('barMonthChartDevice1').getContext('2d'), {
+      type: 'bar',
+      data: {
+        labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13',
+          '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31'],
+        datasets: [{
+          label: 'Кількість спожитої енергії за день',
+          data: [{{ monthDataDevice1_1 }}, {{ monthDataDevice1_2 }}, {{ monthDataDevice1_3 }}, {{ monthDataDevice1_4 }}, {{ monthDataDevice1_5 }}, {{ monthDataDevice1_6 }}, {{ monthDataDevice1_7 }},
+          {{ monthDataDevice1_8 }}, {{ monthDataDevice1_9 }}, {{ monthDataDevice1_10 }}, {{ monthDataDevice1_11 }}, {{ monthDataDevice1_12 }}, {{ monthDataDevice1_13 }}, {{ monthDataDevice1_14 }},
+          {{ monthDataDevice1_15 }}, {{ monthDataDevice1_16 }}, {{ monthDataDevice1_17 }}, {{ monthDataDevice1_18 }}, {{ monthDataDevice1_19 }}, {{ monthDataDevice1_20 }}, {{ monthDataDevice1_21 }},
+          {{ monthDataDevice1_22 }}, {{ monthDataDevice1_23 }}, {{ monthDataDevice1_24 }}, {{ monthDataDevice1_25 }}, {{ monthDataDevice1_26 }}, {{ monthDataDevice1_27 }}, {{ monthDataDevice1_28 }},
+          {{ monthDataDevice1_29 }}, {{ monthDataDevice1_30 }}, {{ monthDataDevice1_31 }}],
+      backgroundColor: [
+      'rgba(255, 99, 132, 0.2)',
+      'rgba(54, 162, 235, 0.2)',
+      'rgba(255, 206, 86, 0.2)',
+      'rgba(75, 192, 192, 0.2)',
+      'rgba(153, 102, 255, 0.2)',
+      'rgba(255, 159, 64, 0.2)',
+      'rgba(255, 204, 204, 0.2)',
+      'rgba(255, 99, 132, 0.2)',
+      'rgba(54, 162, 235, 0.2)',
+      'rgba(255, 206, 86, 0.2)',
+      'rgba(75, 192, 192, 0.2)',
+      'rgba(153, 102, 255, 0.2)',
+      'rgba(255, 159, 64, 0.2)',
+      'rgba(255, 204, 204, 0.2)',
+      'rgba(255, 99, 132, 0.2)',
+      'rgba(54, 162, 235, 0.2)',
+      'rgba(255, 206, 86, 0.2)',
+      'rgba(75, 192, 192, 0.2)',
+      'rgba(153, 102, 255, 0.2)',
+      'rgba(255, 159, 64, 0.2)',
+      'rgba(255, 204, 204, 0.2)',
+      'rgba(255, 99, 132, 0.2)',
+      'rgba(54, 162, 235, 0.2)',
+      'rgba(255, 206, 86, 0.2)',
+      'rgba(75, 192, 192, 0.2)',
+      'rgba(153, 102, 255, 0.2)',
+      'rgba(255, 159, 64, 0.2)',
+      'rgba(255, 204, 204, 0.2)',
+      'rgba(255, 99, 132, 0.2)',
+      'rgba(54, 162, 235, 0.2)',
+      'rgba(255, 206, 86, 0.2)'
+    ],
+      borderColor: [
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)',
+        'rgba(255, 153, 153, 1)',
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)',
+        'rgba(255, 153, 153, 1)',
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)',
+        'rgba(255, 153, 153, 1)',
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)',
+        'rgba(255, 153, 153, 1)',
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)'
+      ],
+        borderWidth: 1
+        }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+});
+
+  </script>
+
+  
+
+
+
+{{!-- CLICKS --}}
+<script>
+
+// HOUR CLICKS
+
+function hourDevice1Click() {
+  
+  let element = document.getElementById("lineHourChartDevice1");
+  element.classList.remove("dnone");
+  element.classList.add("dblock");
+
+  element = document.getElementById("lineHourChartDevice2");
+  element.classList.remove("dblock");
+  element.classList.add("dnone");
+
+  element = document.getElementById("lineHourChartDevice3");
+  element.classList.remove("dblock");
+  element.classList.add("dnone");
+
+  element = document.getElementById("lineHourChartDevice4");
+  element.classList.remove("dblock");
+  element.classList.add("dnone");
+
+
+
+    let lineHourDevice1Chart = new Chart(document.getElementById('lineHourChartDevice1'), {
+      type: 'line',
+      data: {
+        labels: ['00', '01', '02', '03', '04', '05', '06', '07',
+          '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', 
+          '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32',
+           '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', 
+           '47', '48', '49', '50', '51', '52', '53', '54', '55', '56', '57', '58', '59'],
+        datasets: [
+          {
+            label: 'Кількість спожитої енергії за хвилину',
+            borderColor: '#1cd5ed',                
+            borderWidth: 1,
+            fill:false,
+            lineTension: 0,
+            data: [
+            {{ hourDataDevice1_0min }},{{ hourDataDevice1_1min }},{{ hourDataDevice1_2min }},{{ hourDataDevice1_3min }},{{ hourDataDevice1_4min }},
+            {{ hourDataDevice1_5min }},{{ hourDataDevice1_6min }},{{ hourDataDevice1_7min }},{{ hourDataDevice1_8min }},{{ hourDataDevice1_9min }},
+            {{ hourDataDevice1_10min }},{{ hourDataDevice1_11min }},{{ hourDataDevice1_12min }},{{ hourDataDevice1_13min }},{{ hourDataDevice1_14min }},
+            {{ hourDataDevice1_15min }},{{ hourDataDevice1_16min }},{{ hourDataDevice1_17min }},{{ hourDataDevice1_18min }},{{ hourDataDevice1_19min }},
+            {{ hourDataDevice1_20min }},{{ hourDataDevice1_21min }},{{ hourDataDevice1_22min }},{{ hourDataDevice1_23min }},{{ hourDataDevice1_24min }},
+            {{ hourDataDevice1_25min }},{{ hourDataDevice1_25min }},{{ hourDataDevice1_27min }},{{ hourDataDevice1_28min }},{{ hourDataDevice1_29min }},
+            {{ hourDataDevice1_30min }}, {{ hourDataDevice1_31min }},{{ hourDataDevice1_32min }},{{ hourDataDevice1_33min }},{{ hourDataDevice1_34min }},
+            {{ hourDataDevice1_35min }},{{ hourDataDevice1_36min }},{{ hourDataDevice1_37min }},{{ hourDataDevice1_38min }},{{ hourDataDevice1_39min }},
+            {{ hourDataDevice1_40min }},{{ hourDataDevice1_41min }},{{ hourDataDevice1_42min }},{{ hourDataDevice1_43min }},{{ hourDataDevice1_44min }},
+            {{ hourDataDevice1_45min }},{{ hourDataDevice1_46min }},{{ hourDataDevice1_47min }},{{ hourDataDevice1_48min }},{{ hourDataDevice1_49min }},
+            {{ hourDataDevice1_50min }},{{ hourDataDevice1_51min }},{{ hourDataDevice1_52min }},{{ hourDataDevice1_53min }},{{ hourDataDevice1_54min }},
+            {{ hourDataDevice1_55min }},{{ hourDataDevice1_56min }},{{ hourDataDevice1_57min }},{{ hourDataDevice1_58min }},{{ hourDataDevice1_59min }}]
+        }
+      ]
+    },
+});
+  }
+
+
+  function hourDevice2Click() {
+
+    //let canvas = document.getElementById('lineHourChart');
+    //  let context = canvas.getContext('2d');
+    //  context.clearRect(0, 0, canvas.width, canvas.height);
+  let element = document.getElementById("lineHourChartDevice1");
+  element.classList.remove("dblock");
+  element.classList.add("dnone");
+
+  element = document.getElementById("lineHourChartDevice2");
+  element.classList.remove("dnone");
+  element.classList.add("dblock");
+
+  element = document.getElementById("lineHourChartDevice3");
+  element.classList.remove("dblock");
+  element.classList.add("dnone");
+
+  element = document.getElementById("lineHourChartDevice4");
+  element.classList.remove("dblock");
+  element.classList.add("dnone");
+
+
+
+    let lineHourDevice2Chart = new Chart(document.getElementById('lineHourChartDevice2'), {
+      type: 'line',
+      data: {
+        labels: ['00', '01', '02', '03', '04', '05', '06', '07',
+          '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', 
+          '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32',
+           '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', 
+           '47', '48', '49', '50', '51', '52', '53', '54', '55', '56', '57', '58', '59'],
+        datasets: [
+          {
+            label: 'Кількість спожитої енергії за хвилину',
+            borderColor: '#76f59a',                
+            borderWidth: 1,
+            fill:false,
+            lineTension: 0,
+            data: [
+            {{ hourDataDevice2_0min }},{{ hourDataDevice2_1min }},{{ hourDataDevice2_2min }},{{ hourDataDevice2_3min }},{{ hourDataDevice2_4min }},
+            {{ hourDataDevice2_5min }},{{ hourDataDevice2_6min }},{{ hourDataDevice2_7min }},{{ hourDataDevice2_8min }},{{ hourDataDevice2_9min }},
+            {{ hourDataDevice2_10min }},{{ hourDataDevice2_11min }},{{ hourDataDevice2_12min }},{{ hourDataDevice2_13min }},{{ hourDataDevice2_14min }},
+            {{ hourDataDevice2_15min }},{{ hourDataDevice2_16min }},{{ hourDataDevice2_17min }},{{ hourDataDevice2_18min }},{{ hourDataDevice2_19min }},
+            {{ hourDataDevice2_20min }},{{ hourDataDevice2_21min }},{{ hourDataDevice2_22min }},{{ hourDataDevice2_23min }},{{ hourDataDevice2_24min }},
+            {{ hourDataDevice2_25min }},{{ hourDataDevice2_25min }},{{ hourDataDevice2_27min }},{{ hourDataDevice2_28min }},{{ hourDataDevice2_29min }},
+            {{ hourDataDevice2_30min }}, {{ hourDataDevice2_31min }},{{ hourDataDevice2_32min }},{{ hourDataDevice2_33min }},{{ hourDataDevice2_34min }},
+            {{ hourDataDevice2_35min }},{{ hourDataDevice2_36min }},{{ hourDataDevice2_37min }},{{ hourDataDevice2_38min }},{{ hourDataDevice2_39min }},
+            {{ hourDataDevice2_40min }},{{ hourDataDevice2_41min }},{{ hourDataDevice2_42min }},{{ hourDataDevice2_43min }},{{ hourDataDevice2_44min }},
+            {{ hourDataDevice2_45min }},{{ hourDataDevice2_46min }},{{ hourDataDevice2_47min }},{{ hourDataDevice2_48min }},{{ hourDataDevice2_49min }},
+            {{ hourDataDevice2_50min }},{{ hourDataDevice2_51min }},{{ hourDataDevice2_52min }},{{ hourDataDevice2_53min }},{{ hourDataDevice2_54min }},
+            {{ hourDataDevice2_55min }},{{ hourDataDevice2_56min }},{{ hourDataDevice2_57min }},{{ hourDataDevice2_58min }},{{ hourDataDevice2_59min }}]
+        }
+      ]
+    },
+});
+
+
+
+
+
+  }
+
+
+  function hourDevice3Click() {
+
+  let element = document.getElementById("lineHourChartDevice1");
+  element.classList.remove("dblock");
+  element.classList.add("dnone");
+
+  element = document.getElementById("lineHourChartDevice2");
+  element.classList.remove("dblock");
+  element.classList.add("dnone");
+
+  element = document.getElementById("lineHourChartDevice3");
+  element.classList.remove("dnone");
+  element.classList.add("dblock");
+
+  element = document.getElementById("lineHourChartDevice4");
+  element.classList.remove("dblock");
+  element.classList.add("dnone");
+
+    let lineHourDevice3Chart = new Chart(document.getElementById('lineHourChartDevice3'), {
+      type: 'line',
+      data: {
+        labels: ['00', '01', '02', '03', '04', '05', '06', '07',
+          '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', 
+          '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32',
+           '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', 
+           '47', '48', '49', '50', '51', '52', '53', '54', '55', '56', '57', '58', '59'],
+        datasets: [
+          {
+            label: 'Кількість спожитої енергії за хвилину',
+            borderColor: '#bc91c7',                
+            borderWidth: 1,
+            fill:false,
+            lineTension: 0,
+            data: [
+            {{ hourDataDevice3_0min }},{{ hourDataDevice3_1min }},{{ hourDataDevice3_2min }},{{ hourDataDevice3_3min }},{{ hourDataDevice3_4min }},
+            {{ hourDataDevice3_5min }},{{ hourDataDevice3_6min }},{{ hourDataDevice3_7min }},{{ hourDataDevice3_8min }},{{ hourDataDevice3_9min }},
+            {{ hourDataDevice3_10min }},{{ hourDataDevice3_11min }},{{ hourDataDevice3_12min }},{{ hourDataDevice3_13min }},{{ hourDataDevice3_14min }},
+            {{ hourDataDevice3_15min }},{{ hourDataDevice3_16min }},{{ hourDataDevice3_17min }},{{ hourDataDevice3_18min }},{{ hourDataDevice3_19min }},
+            {{ hourDataDevice3_20min }},{{ hourDataDevice3_21min }},{{ hourDataDevice3_22min }},{{ hourDataDevice3_23min }},{{ hourDataDevice3_24min }},
+            {{ hourDataDevice3_25min }},{{ hourDataDevice3_25min }},{{ hourDataDevice3_27min }},{{ hourDataDevice3_28min }},{{ hourDataDevice3_29min }},
+            {{ hourDataDevice3_30min }}, {{ hourDataDevice3_31min }},{{ hourDataDevice3_32min }},{{ hourDataDevice3_33min }},{{ hourDataDevice3_34min }},
+            {{ hourDataDevice3_35min }},{{ hourDataDevice3_36min }},{{ hourDataDevice3_37min }},{{ hourDataDevice3_38min }},{{ hourDataDevice3_39min }},
+            {{ hourDataDevice3_40min }},{{ hourDataDevice3_41min }},{{ hourDataDevice3_42min }},{{ hourDataDevice3_43min }},{{ hourDataDevice3_44min }},
+            {{ hourDataDevice3_45min }},{{ hourDataDevice3_46min }},{{ hourDataDevice3_47min }},{{ hourDataDevice3_48min }},{{ hourDataDevice3_49min }},
+            {{ hourDataDevice3_50min }},{{ hourDataDevice3_51min }},{{ hourDataDevice3_52min }},{{ hourDataDevice3_53min }},{{ hourDataDevice3_54min }},
+            {{ hourDataDevice3_55min }},{{ hourDataDevice3_56min }},{{ hourDataDevice3_57min }},{{ hourDataDevice3_58min }},{{ hourDataDevice3_59min }}]
+        }
+      ]
+    },
+});
+}
+
+  function hourDevice4Click() {
+
+  let element = document.getElementById("lineHourChartDevice1");
+  element.classList.remove("dblock");
+  element.classList.add("dnone");
+
+  element = document.getElementById("lineHourChartDevice2");
+  element.classList.remove("dblock");
+  element.classList.add("dnone");
+
+  element = document.getElementById("lineHourChartDevice3");
+  element.classList.remove("dblock");
+  element.classList.add("dnone");
+
+  element = document.getElementById("lineHourChartDevice4");
+  element.classList.remove("dnone");
+  element.classList.add("dblock");
+
+    let lineHourDevice4Chart = new Chart(document.getElementById('lineHourChartDevice4'), {
+      type: 'line',
+      data: {
+        labels: ['00', '01', '02', '03', '04', '05', '06', '07',
+          '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', 
+          '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32',
+           '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', 
+           '47', '48', '49', '50', '51', '52', '53', '54', '55', '56', '57', '58', '59'],
+        datasets: [
+          {
+            label: 'Кількість спожитої енергії за хвилину',
+            borderColor: '#f5f176',                
+            borderWidth: 1,
+            fill:false,
+            lineTension: 0,
+            data: [
+            {{ hourDataDevice4_0min }},{{ hourDataDevice4_1min }},{{ hourDataDevice4_2min }},{{ hourDataDevice4_3min }},{{ hourDataDevice4_4min }},
+            {{ hourDataDevice4_5min }},{{ hourDataDevice4_6min }},{{ hourDataDevice4_7min }},{{ hourDataDevice4_8min }},{{ hourDataDevice4_9min }},
+            {{ hourDataDevice4_10min }},{{ hourDataDevice4_11min }},{{ hourDataDevice4_12min }},{{ hourDataDevice4_13min }},{{ hourDataDevice4_14min }},
+            {{ hourDataDevice4_15min }},{{ hourDataDevice4_16min }},{{ hourDataDevice4_17min }},{{ hourDataDevice4_18min }},{{ hourDataDevice4_19min }},
+            {{ hourDataDevice4_20min }},{{ hourDataDevice4_21min }},{{ hourDataDevice4_22min }},{{ hourDataDevice4_23min }},{{ hourDataDevice4_24min }},
+            {{ hourDataDevice4_25min }},{{ hourDataDevice4_25min }},{{ hourDataDevice4_27min }},{{ hourDataDevice4_28min }},{{ hourDataDevice4_29min }},
+            {{ hourDataDevice4_30min }}, {{ hourDataDevice4_31min }},{{ hourDataDevice4_32min }},{{ hourDataDevice4_33min }},{{ hourDataDevice4_34min }},
+            {{ hourDataDevice4_35min }},{{ hourDataDevice4_36min }},{{ hourDataDevice4_37min }},{{ hourDataDevice4_38min }},{{ hourDataDevice4_39min }},
+            {{ hourDataDevice4_40min }},{{ hourDataDevice4_41min }},{{ hourDataDevice4_42min }},{{ hourDataDevice4_43min }},{{ hourDataDevice4_44min }},
+            {{ hourDataDevice4_45min }},{{ hourDataDevice4_46min }},{{ hourDataDevice4_47min }},{{ hourDataDevice4_48min }},{{ hourDataDevice4_49min }},
+            {{ hourDataDevice4_50min }},{{ hourDataDevice4_51min }},{{ hourDataDevice4_52min }},{{ hourDataDevice4_53min }},{{ hourDataDevice4_54min }},
+            {{ hourDataDevice4_55min }},{{ hourDataDevice4_56min }},{{ hourDataDevice4_57min }},{{ hourDataDevice4_58min }},{{ hourDataDevice4_59min }}]
+        }
+      ]
+    },
+});
+  }
+
+</script>
+
+<script>
+  // DAY CLICKS
+
+function dayDevice1Click() {
+
+  let element = document.getElementById("barDayChartDevice1");
+  element.classList.remove("dnone");
+  element.classList.add("dblock");
+
+  element = document.getElementById("barDayChartDevice2");
+  element.classList.remove("dblock");
+  element.classList.add("dnone");
+
+  element = document.getElementById("barDayChartDevice3");
+  element.classList.remove("dblock");
+  element.classList.add("dnone");
+
+  element = document.getElementById("barDayChartDevice4");
+  element.classList.remove("dblock");
+  element.classList.add("dnone");
+
+  let barDayDevice1Chart = new Chart(document.getElementById('barDayChartDevice1'), {
+      type: 'horizontalBar',
+      data: {
+        labels: ['12:00', '1:00', '2:00', '3:00', '4:00', '5:00', '6:00', '7:00', '8:00',
+          '9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00',
+          '19:00', '20:00', '21:00', '22:00', '23:00'],
+        datasets: [{
+          data: [{{dayDataDevice1_12am}}, {{dayDataDevice1_1am}},{{dayDataDevice1_2am}}, {{dayDataDevice1_3am}},
+    {{dayDataDevice1_4am}}, {{dayDataDevice1_5am}}, {{dayDataDevice1_6am}}, {{dayDataDevice1_7am}}, {{dayDataDevice1_8am}},
+    {{dayDataDevice1_9am}}, {{dayDataDevice1_10am}}, {{dayDataDevice1_11am}}, {{dayDataDevice1_12pm}}, {{dayDataDevice1_1pm}},
+    {{dayDataDevice1_2pm}}, {{dayDataDevice1_3pm}}, {{dayDataDevice1_4pm}}, {{dayDataDevice1_5pm }}, {{dayDataDevice1_6pm}},
+    {{dayDataDevice1_7pm}}, {{dayDataDevice1_8pm}}, {{dayDataDevice1_9pm}}, {{dayDataDevice1_10pm}}, {{dayDataDevice1_11pm}}], 
+    label: 'Кількість спожитої енергії за годину',
+    backgroundColor: [
+              'rgba(245, 7, 7, 0.2)',
+              'rgba(161, 231, 247, 0.2)',
+              'rgba(146, 163, 222, 0.2)',
+              'rgba(175, 146, 222, 0.2)',
+              'rgba(84, 222, 181, 0.2)',
+              'rgba(222, 126, 84, 0.2)',
+              'rgba(68, 223, 235, 0.2)',
+              'rgba(60, 6, 148, 0.2)',
+              'rgba(232, 235, 68, 0.2)',
+              'rgba(142, 245, 7, 0.2)',
+              'rgba(245, 7, 7, 0.2)',
+              'rgba(161, 231, 247, 0.2)',
+              'rgba(146, 163, 222, 0.2)',
+              'rgba(175, 146, 222, 0.2)',
+              'rgba(84, 222, 181, 0.2)',
+              'rgba(222, 126, 84, 0.2)',
+              'rgba(68, 223, 235, 0.2)',
+              'rgba(60, 6, 148, 0.2)',
+              'rgba(232, 235, 68, 0.2)',
+              'rgba(142, 245, 7, 0.2)',
+              'rgba(245, 7, 7, 0.2)',
+              'rgba(161, 231, 247, 0.2)',
+              'rgba(146, 163, 222, 0.2)',
+              'rgba(175, 146, 222, 0.2)'],
+      borderColor: [
+              'rgba(245, 7, 7, 1)',
+              'rgba(161, 231, 247, 1)',
+              'rgba(146, 163, 222, 1)',
+              'rgba(175, 146, 222, 1)',
+              'rgba(84, 222, 181, 1)',
+              'rgba(222, 126, 84, 1)',
+              'rgba(68, 223, 235, 1)',
+              'rgba(60, 6, 148, 1)',
+              'rgba(232, 235, 68, 1)',
+              'rgba(142, 245, 7, 1)',
+              'rgba(245, 7, 7, 1)',
+              'rgba(161, 231, 247, 1)',
+              'rgba(146, 163, 222, 1)',
+              'rgba(175, 146, 222, 1)',
+              'rgba(84, 222, 181, 1)',
+              'rgba(222, 126, 84, 1)',
+              'rgba(68, 223, 235, 1)',
+              'rgba(60, 6, 148, 1)',
+              'rgba(232, 235, 68, 1)',
+              'rgba(142, 245, 7, 1)',
+              'rgba(245, 7, 7, 1)',
+              'rgba(161, 231, 247, 1)',
+              'rgba(146, 163, 222, 1)',
+              'rgba(175, 146, 222, 1)'
+
+      ],
+      borderWidth: 0.5,
+    }]
+    },
+  });
+}
+
+
+
+function dayDevice2Click() {
+
+  let element = document.getElementById("barDayChartDevice1");
+  element.classList.remove("dblock");
+  element.classList.add("dnone");
+
+  element = document.getElementById("barDayChartDevice2");
+  element.classList.remove("dnone");
+  element.classList.add("dblock");
+
+  element = document.getElementById("barDayChartDevice3");
+  element.classList.remove("dblock");
+  element.classList.add("dnone");
+
+  element = document.getElementById("barDayChartDevice4");
+  element.classList.remove("dblock");
+  element.classList.add("dnone");
+
+  let barDayDevice2Chart = new Chart(document.getElementById('barDayChartDevice2'), {
+      type: 'horizontalBar',
+      data: {
+        labels: ['12:00', '1:00', '2:00', '3:00', '4:00', '5:00', '6:00', '7:00', '8:00',
+          '9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00',
+          '19:00', '20:00', '21:00', '22:00', '23:00'],
+        datasets: [{
+          data: [{{dayDataDevice2_12am}}, {{dayDataDevice2_1am}},{{dayDataDevice2_2am}}, {{dayDataDevice2_3am}},
+    {{dayDataDevice2_4am}}, {{dayDataDevice2_5am}}, {{dayDataDevice2_6am}}, {{dayDataDevice2_7am}}, {{dayDataDevice2_8am}},
+    {{dayDataDevice2_9am}}, {{dayDataDevice2_10am}}, {{dayDataDevice2_11am}}, {{dayDataDevice2_12pm}}, {{dayDataDevice2_1pm}},
+    {{dayDataDevice2_2pm}}, {{dayDataDevice2_3pm}}, {{dayDataDevice2_4pm}}, {{dayDataDevice2_5pm }}, {{dayDataDevice2_6pm}},
+    {{dayDataDevice2_7pm}}, {{dayDataDevice2_8pm}}, {{dayDataDevice2_9pm}}, {{dayDataDevice2_10pm}}, {{dayDataDevice2_11pm}}], 
+    label: 'Кількість спожитої енергії за годину',
+    backgroundColor: [              
+              'rgba(146, 163, 222, 0.2)',
+              'rgba(175, 146, 222, 0.2)',
+              'rgba(84, 222, 181, 0.2)',
+              'rgba(222, 126, 84, 0.2)',
+              'rgba(68, 223, 235, 0.2)',
+              'rgba(60, 6, 148, 0.2)',
+              'rgba(232, 235, 68, 0.2)',
+              'rgba(142, 245, 7, 0.2)',
+              'rgba(245, 7, 7, 0.2)',
+              'rgba(161, 231, 247, 0.2)',
+              'rgba(146, 163, 222, 0.2)',
+              'rgba(175, 146, 222, 0.2)',
+              'rgba(245, 7, 7, 0.2)',
+              'rgba(161, 231, 247, 0.2)',
+              'rgba(146, 163, 222, 0.2)',
+              'rgba(175, 146, 222, 0.2)',
+              'rgba(84, 222, 181, 0.2)',
+              'rgba(222, 126, 84, 0.2)',
+              'rgba(68, 223, 235, 0.2)',
+              'rgba(60, 6, 148, 0.2)',
+              'rgba(232, 235, 68, 0.2)',
+              'rgba(142, 245, 7, 0.2)',
+              'rgba(245, 7, 7, 0.2)',
+              'rgba(161, 231, 247, 0.2)'],
+      borderColor: [
+              
+              'rgba(146, 163, 222, 1)',
+              'rgba(175, 146, 222, 1)',
+              'rgba(84, 222, 181, 1)',
+              'rgba(222, 126, 84, 1)',
+              'rgba(68, 223, 235, 1)',
+              'rgba(60, 6, 148, 1)',
+              'rgba(232, 235, 68, 1)',
+              'rgba(142, 245, 7, 1)',
+              'rgba(245, 7, 7, 1)',
+              'rgba(161, 231, 247, 1)',
+              'rgba(146, 163, 222, 1)',
+              'rgba(175, 146, 222, 1)',
+              'rgba(245, 7, 7, 1)',
+              'rgba(161, 231, 247, 1)',
+              'rgba(146, 163, 222, 1)',
+              'rgba(175, 146, 222, 1)',
+              'rgba(84, 222, 181, 1)',
+              'rgba(222, 126, 84, 1)',
+              'rgba(68, 223, 235, 1)',
+              'rgba(60, 6, 148, 1)',
+              'rgba(232, 235, 68, 1)',
+              'rgba(142, 245, 7, 1)',
+              'rgba(245, 7, 7, 1)',
+              'rgba(161, 231, 247, 1)'
+
+      ],
+      borderWidth: 0.5,
+    }]
+    },
+  });
+}
+
+
+
+function dayDevice3Click() {
+
+  let element = document.getElementById("barDayChartDevice1");
+  element.classList.remove("dblock");
+  element.classList.add("dnone");
+
+  element = document.getElementById("barDayChartDevice2");
+  element.classList.remove("dblock");
+  element.classList.add("dnone");
+
+  element = document.getElementById("barDayChartDevice3");
+  element.classList.remove("dnone");
+  element.classList.add("dblock");
+
+  element = document.getElementById("barDayChartDevice4");
+  element.classList.remove("dblock");
+  element.classList.add("dnone");
+
+  let barDayDevice3Chart = new Chart(document.getElementById('barDayChartDevice3'), {
+      type: 'horizontalBar',
+      data: {
+        labels: ['12:00', '1:00', '2:00', '3:00', '4:00', '5:00', '6:00', '7:00', '8:00',
+          '9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00',
+          '19:00', '20:00', '21:00', '22:00', '23:00'],
+        datasets: [{
+          data: [{{dayDataDevice3_12am}}, {{dayDataDevice3_1am}},{{dayDataDevice3_2am}}, {{dayDataDevice3_3am}},
+    {{dayDataDevice3_4am}}, {{dayDataDevice3_5am}}, {{dayDataDevice3_6am}}, {{dayDataDevice3_7am}}, {{dayDataDevice3_8am}},
+    {{dayDataDevice3_9am}}, {{dayDataDevice3_10am}}, {{dayDataDevice3_11am}}, {{dayDataDevice3_12pm}}, {{dayDataDevice3_1pm}},
+    {{dayDataDevice3_2pm}}, {{dayDataDevice3_3pm}}, {{dayDataDevice3_4pm}}, {{dayDataDevice3_5pm }}, {{dayDataDevice3_6pm}},
+    {{dayDataDevice3_7pm}}, {{dayDataDevice3_8pm}}, {{dayDataDevice3_9pm}}, {{dayDataDevice3_10pm}}, {{dayDataDevice3_11pm}}], 
+    label: 'Кількість спожитої енергії за годину',
+    backgroundColor: [
+              'rgba(245, 7, 7, 0.2)',
+              'rgba(161, 231, 247, 0.2)',
+              'rgba(146, 163, 222, 0.2)',
+              'rgba(175, 146, 222, 0.2)',
+              'rgba(84, 222, 181, 0.2)',
+              'rgba(222, 126, 84, 0.2)',
+              'rgba(68, 223, 235, 0.2)',
+              'rgba(60, 6, 148, 0.2)',
+              'rgba(232, 235, 68, 0.2)',              
+              'rgba(245, 7, 7, 0.2)',
+              'rgba(161, 231, 247, 0.2)',
+              'rgba(146, 163, 222, 0.2)',
+              'rgba(175, 146, 222, 0.2)',
+              'rgba(142, 245, 7, 0.2)',
+              'rgba(245, 7, 7, 0.2)',
+              'rgba(161, 231, 247, 0.2)',
+              'rgba(146, 163, 222, 0.2)',
+              'rgba(175, 146, 222, 0.2)',
+              'rgba(84, 222, 181, 0.2)',
+              'rgba(222, 126, 84, 0.2)',
+              'rgba(68, 223, 235, 0.2)',
+              'rgba(60, 6, 148, 0.2)',
+              'rgba(232, 235, 68, 0.2)',
+              'rgba(142, 245, 7, 0.2)'],
+      borderColor: [
+              'rgba(245, 7, 7, 1)',
+              'rgba(161, 231, 247, 1)',
+              'rgba(146, 163, 222, 1)',
+              'rgba(175, 146, 222, 1)',
+              'rgba(84, 222, 181, 1)',
+              'rgba(222, 126, 84, 1)',
+              'rgba(68, 223, 235, 1)',
+              'rgba(60, 6, 148, 1)',
+              'rgba(232, 235, 68, 1)',              
+              'rgba(245, 7, 7, 1)',
+              'rgba(161, 231, 247, 1)',
+              'rgba(146, 163, 222, 1)',
+              'rgba(175, 146, 222, 1)',
+              'rgba(142, 245, 7, 1)',
+              'rgba(245, 7, 7, 1)',
+              'rgba(161, 231, 247, 1)',
+              'rgba(146, 163, 222, 1)',
+              'rgba(175, 146, 222, 1)',
+              'rgba(84, 222, 181, 1)',
+              'rgba(222, 126, 84, 1)',
+              'rgba(68, 223, 235, 1)',
+              'rgba(60, 6, 148, 1)',
+              'rgba(232, 235, 68, 1)',
+              'rgba(142, 245, 7, 1)'
+
+      ],
+      borderWidth: 0.5,
+    }]
+    },
+  });
+}
+  
+
+
+
+function dayDevice4Click() {
+
+  let element = document.getElementById("barDayChartDevice1");
+  element.classList.remove("dblock");
+  element.classList.add("dnone");
+
+  element = document.getElementById("barDayChartDevice2");
+  element.classList.remove("dblock");
+  element.classList.add("dnone");
+
+  element = document.getElementById("barDayChartDevice3");
+  element.classList.remove("dblock");
+  element.classList.add("dnone");
+
+  element = document.getElementById("barDayChartDevice4");
+  element.classList.remove("dnone");
+  element.classList.add("dblock");
+
+  let barDayDevice4Chart = new Chart(document.getElementById('barDayChartDevice4'), {
+      type: 'horizontalBar',
+      data: {
+        labels: ['12:00', '1:00', '2:00', '3:00', '4:00', '5:00', '6:00', '7:00', '8:00',
+          '9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00',
+          '19:00', '20:00', '21:00', '22:00', '23:00'],
+        datasets: [{
+          data: [{{dayDataDevice4_12am}}, {{dayDataDevice4_1am}},{{dayDataDevice4_2am}}, {{dayDataDevice4_3am}},
+    {{dayDataDevice4_4am}}, {{dayDataDevice4_5am}}, {{dayDataDevice4_6am}}, {{dayDataDevice4_7am}}, {{dayDataDevice4_8am}},
+    {{dayDataDevice4_9am}}, {{dayDataDevice4_10am}}, {{dayDataDevice4_11am}}, {{dayDataDevice4_12pm}}, {{dayDataDevice4_1pm}},
+    {{dayDataDevice4_2pm}}, {{dayDataDevice4_3pm}}, {{dayDataDevice4_4pm}}, {{dayDataDevice4_5pm }}, {{dayDataDevice4_6pm}},
+    {{dayDataDevice4_7pm}}, {{dayDataDevice4_8pm}}, {{dayDataDevice4_9pm}}, {{dayDataDevice4_10pm}}, {{dayDataDevice4_11pm}}], 
+    label: 'Кількість спожитої енергії за годину',
+    backgroundColor: [
+              'rgba(142, 245, 7, 0.2)',
+              'rgba(245, 7, 7, 0.2)',
+              'rgba(161, 231, 247, 0.2)',
+              'rgba(146, 163, 222, 0.2)',
+              'rgba(175, 146, 222, 0.2)',
+              'rgba(84, 222, 181, 0.2)',
+              'rgba(222, 126, 84, 0.2)',
+              'rgba(68, 223, 235, 0.2)',
+              'rgba(60, 6, 148, 0.2)',
+              'rgba(232, 235, 68, 0.2)',
+              'rgba(142, 245, 7, 0.2)',
+              'rgba(245, 7, 7, 0.2)',
+              'rgba(161, 231, 247, 0.2)',
+              'rgba(146, 163, 222, 0.2)',
+              'rgba(175, 146, 222, 0.2)',
+              'rgba(84, 222, 181, 0.2)',
+              'rgba(222, 126, 84, 0.2)',
+              'rgba(68, 223, 235, 0.2)',
+              'rgba(60, 6, 148, 0.2)',
+              'rgba(232, 235, 68, 0.2)',              
+              'rgba(245, 7, 7, 0.2)',
+              'rgba(161, 231, 247, 0.2)',
+              'rgba(146, 163, 222, 0.2)',
+              'rgba(175, 146, 222, 0.2)'],
+      borderColor: [
+              'rgba(142, 245, 7, 1)',
+              'rgba(245, 7, 7, 1)',
+              'rgba(161, 231, 247, 1)',
+              'rgba(146, 163, 222, 1)',
+              'rgba(175, 146, 222, 1)',
+              'rgba(84, 222, 181, 1)',
+              'rgba(222, 126, 84, 1)',
+              'rgba(68, 223, 235, 1)',
+              'rgba(60, 6, 148, 1)',
+              'rgba(232, 235, 68, 1)',
+              'rgba(142, 245, 7, 1)',
+              'rgba(245, 7, 7, 1)',
+              'rgba(161, 231, 247, 1)',
+              'rgba(146, 163, 222, 1)',
+              'rgba(175, 146, 222, 1)',
+              'rgba(84, 222, 181, 1)',
+              'rgba(222, 126, 84, 1)',
+              'rgba(68, 223, 235, 1)',
+              'rgba(60, 6, 148, 1)',
+              'rgba(232, 235, 68, 1)',              
+              'rgba(245, 7, 7, 1)',
+              'rgba(161, 231, 247, 1)',
+              'rgba(146, 163, 222, 1)',
+              'rgba(175, 146, 222, 1)'
+
+      ],
+      borderWidth: 0.5,
+    }]
+    },
+  });
+}
+  
+
+
+</script>
+
+<script>
+// MONTH CLICKS
+function monthDevice1Click() {
+
+  let element = document.getElementById("barMonthChartDevice1");
+  element.classList.remove("dnone");
+  element.classList.add("dblock");
+
+  element = document.getElementById("barMonthChartDevice2");
+  element.classList.remove("dblock");
+  element.classList.add("dnone");
+
+  element = document.getElementById("barMonthChartDevice3");
+  element.classList.remove("dblock");
+  element.classList.add("dnone");
+
+  element = document.getElementById("barMonthChartDevice4");
+  element.classList.remove("dblock");
+  element.classList.add("dnone");
+
+ let barMonthDevice1Chart = new Chart(document.getElementById('barMonthChartDevice1').getContext('2d'), {
+      type: 'bar',
+      data: {
+        labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13',
+          '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31'],
+        datasets: [{
+          label: 'Кількість спожитої енергії за день',
+          data: [{{ monthDataDevice1_1 }}, {{ monthDataDevice1_2 }}, {{ monthDataDevice1_3 }}, {{ monthDataDevice1_4 }}, {{ monthDataDevice1_5 }}, {{ monthDataDevice1_6 }}, {{ monthDataDevice1_7 }},
+          {{ monthDataDevice1_8 }}, {{ monthDataDevice1_9 }}, {{ monthDataDevice1_10 }}, {{ monthDataDevice1_11 }}, {{ monthDataDevice1_12 }}, {{ monthDataDevice1_13 }}, {{ monthDataDevice1_14 }},
+          {{ monthDataDevice1_15 }}, {{ monthDataDevice1_16 }}, {{ monthDataDevice1_17 }}, {{ monthDataDevice1_18 }}, {{ monthDataDevice1_19 }}, {{ monthDataDevice1_20 }}, {{ monthDataDevice1_21 }},
+          {{ monthDataDevice1_22 }}, {{ monthDataDevice1_23 }}, {{ monthDataDevice1_24 }}, {{ monthDataDevice1_25 }}, {{ monthDataDevice1_26 }}, {{ monthDataDevice1_27 }}, {{ monthDataDevice1_28 }},
+          {{ monthDataDevice1_29 }}, {{ monthDataDevice1_30 }}, {{ monthDataDevice1_31 }}],
+      backgroundColor: [
+      'rgba(255, 99, 132, 0.2)',
+      'rgba(54, 162, 235, 0.2)',
+      'rgba(255, 206, 86, 0.2)',
+      'rgba(75, 192, 192, 0.2)',
+      'rgba(153, 102, 255, 0.2)',
+      'rgba(255, 159, 64, 0.2)',
+      'rgba(255, 204, 204, 0.2)',
+      'rgba(255, 99, 132, 0.2)',
+      'rgba(54, 162, 235, 0.2)',
+      'rgba(255, 206, 86, 0.2)',
+      'rgba(75, 192, 192, 0.2)',
+      'rgba(153, 102, 255, 0.2)',
+      'rgba(255, 159, 64, 0.2)',
+      'rgba(255, 204, 204, 0.2)',
+      'rgba(255, 99, 132, 0.2)',
+      'rgba(54, 162, 235, 0.2)',
+      'rgba(255, 206, 86, 0.2)',
+      'rgba(75, 192, 192, 0.2)',
+      'rgba(153, 102, 255, 0.2)',
+      'rgba(255, 159, 64, 0.2)',
+      'rgba(255, 204, 204, 0.2)',
+      'rgba(255, 99, 132, 0.2)',
+      'rgba(54, 162, 235, 0.2)',
+      'rgba(255, 206, 86, 0.2)',
+      'rgba(75, 192, 192, 0.2)',
+      'rgba(153, 102, 255, 0.2)',
+      'rgba(255, 159, 64, 0.2)',
+      'rgba(255, 204, 204, 0.2)',
+      'rgba(255, 99, 132, 0.2)',
+      'rgba(54, 162, 235, 0.2)',
+      'rgba(255, 206, 86, 0.2)'
+    ],
+      borderColor: [
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)',
+        'rgba(255, 153, 153, 1)',
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)',
+        'rgba(255, 153, 153, 1)',
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)',
+        'rgba(255, 153, 153, 1)',
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)',
+        'rgba(255, 153, 153, 1)',
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)'
+      ],
+        borderWidth: 1
+        }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+});
+}
+
+function monthDevice2Click() {
+
+  let element = document.getElementById("barMonthChartDevice1");
+  element.classList.remove("dvlock");
+  element.classList.add("dnone");
+
+  element = document.getElementById("barMonthChartDevice2");
+  element.classList.remove("dnone");
+  element.classList.add("dblock");
+
+  element = document.getElementById("barMonthChartDevice3");
+  element.classList.remove("dblock");
+  element.classList.add("dnone");
+
+  element = document.getElementById("barMonthChartDevice4");
+  element.classList.remove("dblock");
+  element.classList.add("dnone");
+
+   let barMonthDevice2Chart = new Chart(document.getElementById('barMonthChartDevice2').getContext('2d'), {
+      type: 'bar',
+      data: {
+        labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13',
+          '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31'],
+        datasets: [{
+          label: 'Кількість спожитої енергії за день',
+          data: [{{ monthDataDevice2_1 }}, {{ monthDataDevice2_2 }}, {{ monthDataDevice2_3 }}, {{ monthDataDevice2_4 }}, {{ monthDataDevice2_5 }}, {{ monthDataDevice2_6 }}, {{ monthDataDevice2_7 }},
+          {{ monthDataDevice2_8 }}, {{ monthDataDevice2_9 }}, {{ monthDataDevice2_10 }}, {{ monthDataDevice2_11 }}, {{ monthDataDevice2_12 }}, {{ monthDataDevice2_13 }}, {{ monthDataDevice2_14 }},
+          {{ monthDataDevice2_15 }}, {{ monthDataDevice2_16 }}, {{ monthDataDevice2_17 }}, {{ monthDataDevice2_18 }}, {{ monthDataDevice2_19 }}, {{ monthDataDevice2_20 }}, {{ monthDataDevice2_21 }},
+          {{ monthDataDevice2_22 }}, {{ monthDataDevice2_23 }}, {{ monthDataDevice2_24 }}, {{ monthDataDevice2_25 }}, {{ monthDataDevice2_26 }}, {{ monthDataDevice2_27 }}, {{ monthDataDevice2_28 }},
+          {{ monthDataDevice2_29 }}, {{ monthDataDevice2_30 }}, {{ monthDataDevice2_31 }}],
+      backgroundColor: [
+      
+      'rgba(255, 159, 64, 0.2)',
+      'rgba(255, 204, 204, 0.2)',
+      'rgba(255, 99, 132, 0.2)',
+      'rgba(54, 162, 235, 0.2)',
+      'rgba(255, 206, 86, 0.2)',
+      'rgba(75, 192, 192, 0.2)',
+      'rgba(153, 102, 255, 0.2)',
+      'rgba(255, 159, 64, 0.2)',
+      'rgba(255, 204, 204, 0.2)',
+      'rgba(255, 99, 132, 0.2)',
+      'rgba(54, 162, 235, 0.2)',
+      'rgba(255, 206, 86, 0.2)',
+      'rgba(255, 99, 132, 0.2)',
+      'rgba(54, 162, 235, 0.2)',
+      'rgba(255, 206, 86, 0.2)',
+      'rgba(75, 192, 192, 0.2)',
+      'rgba(153, 102, 255, 0.2)',
+      'rgba(255, 159, 64, 0.2)',
+      'rgba(255, 204, 204, 0.2)',
+      'rgba(255, 99, 132, 0.2)',
+      'rgba(54, 162, 235, 0.2)',
+      'rgba(255, 206, 86, 0.2)',
+      'rgba(75, 192, 192, 0.2)',
+      'rgba(153, 102, 255, 0.2)',
+      'rgba(255, 159, 64, 0.2)',
+      'rgba(255, 204, 204, 0.2)',
+      'rgba(255, 99, 132, 0.2)',
+      'rgba(54, 162, 235, 0.2)',
+      'rgba(255, 206, 86, 0.2)',
+      'rgba(75, 192, 192, 0.2)',
+      'rgba(153, 102, 255, 0.2)'
+    ],
+      borderColor: [
+        
+        'rgba(255, 159, 64, 1)',
+        'rgba(255, 153, 153, 1)',
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)',
+        'rgba(255, 153, 153, 1)',
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)',
+        'rgba(255, 153, 153, 1)',
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)',
+        'rgba(255, 153, 153, 1)',
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)'
+      ],
+        borderWidth: 1
+        }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+});
+}
+
+function monthDevice3Click() {
+
+  let element = document.getElementById("barMonthChartDevice1");
+  element.classList.remove("dblock");
+  element.classList.add("dnone");
+
+  element = document.getElementById("barMonthChartDevice2");
+  element.classList.remove("dblock");
+  element.classList.add("dnone");
+
+  element = document.getElementById("barMonthChartDevice3");
+  element.classList.remove("dnone");
+  element.classList.add("dblock");
+
+  element = document.getElementById("barMonthChartDevice4");
+  element.classList.remove("dblock");
+  element.classList.add("dnone");
+
+   let barMonthDevice3Chart = new Chart(document.getElementById('barMonthChartDevice3').getContext('2d'), {
+      type: 'bar',
+      data: {
+        labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13',
+          '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31'],
+        datasets: [{
+          label: 'Кількість спожитої енергії за день',
+          data: [{{ monthDataDevice3_1 }}, {{ monthDataDevice3_2 }}, {{ monthDataDevice3_3 }}, {{ monthDataDevice3_4 }}, {{ monthDataDevice3_5 }}, {{ monthDataDevice3_6 }}, {{ monthDataDevice3_7 }},
+          {{ monthDataDevice3_8 }}, {{ monthDataDevice3_9 }}, {{ monthDataDevice3_10 }}, {{ monthDataDevice3_11 }}, {{ monthDataDevice3_12 }}, {{ monthDataDevice3_13 }}, {{ monthDataDevice3_14 }},
+          {{ monthDataDevice3_15 }}, {{ monthDataDevice3_16 }}, {{ monthDataDevice3_17 }}, {{ monthDataDevice3_18 }}, {{ monthDataDevice3_19 }}, {{ monthDataDevice3_20 }}, {{ monthDataDevice3_21 }},
+          {{ monthDataDevice3_22 }}, {{ monthDataDevice3_23 }}, {{ monthDataDevice3_24 }}, {{ monthDataDevice3_25 }}, {{ monthDataDevice3_26 }}, {{ monthDataDevice3_27 }}, {{ monthDataDevice3_28 }},
+          {{ monthDataDevice3_29 }}, {{ monthDataDevice3_30 }}, {{ monthDataDevice3_31 }}],
+      backgroundColor: [
+      
+      
+      'rgba(255, 204, 204, 0.2)',
+      'rgba(255, 99, 132, 0.2)',
+      'rgba(54, 162, 235, 0.2)',
+      'rgba(255, 206, 86, 0.2)',
+      'rgba(255, 99, 132, 0.2)',
+      'rgba(54, 162, 235, 0.2)',
+      'rgba(255, 206, 86, 0.2)',
+      'rgba(75, 192, 192, 0.2)',
+      'rgba(153, 102, 255, 0.2)',
+      'rgba(255, 159, 64, 0.2)',
+      'rgba(255, 204, 204, 0.2)',
+      'rgba(255, 99, 132, 0.2)',
+      'rgba(54, 162, 235, 0.2)',
+      'rgba(255, 206, 86, 0.2)',
+      'rgba(75, 192, 192, 0.2)',
+      'rgba(153, 102, 255, 0.2)',
+      'rgba(255, 159, 64, 0.2)',
+      'rgba(255, 204, 204, 0.2)',
+      'rgba(255, 99, 132, 0.2)',
+      'rgba(54, 162, 235, 0.2)',
+      'rgba(255, 206, 86, 0.2)',
+      'rgba(75, 192, 192, 0.2)',
+      'rgba(153, 102, 255, 0.2)',
+      'rgba(255, 159, 64, 0.2)',
+      'rgba(255, 204, 204, 0.2)',
+      'rgba(255, 99, 132, 0.2)',
+      'rgba(54, 162, 235, 0.2)',
+      'rgba(255, 206, 86, 0.2)',
+      'rgba(75, 192, 192, 0.2)',
+      'rgba(153, 102, 255, 0.2)',
+      'rgba(255, 159, 64, 0.2)'
+    ],
+      borderColor: [
+        
+        
+        'rgba(255, 153, 153, 1)',
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)',
+        'rgba(255, 153, 153, 1)',
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)',
+        'rgba(255, 153, 153, 1)',
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)',
+        'rgba(255, 153, 153, 1)',
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)',
+      ],
+        borderWidth: 1
+        }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+});
+}
+
+function monthDevice4Click() {
+
+  let element = document.getElementById("barMonthChartDevice1");
+  element.classList.remove("dblock");
+  element.classList.add("dnone");
+
+  element = document.getElementById("barMonthChartDevice2");
+  element.classList.remove("dblock");
+  element.classList.add("dnone");
+
+  element = document.getElementById("barMonthChartDevice3");
+  element.classList.remove("dblock");
+  element.classList.add("dnone");
+
+  element = document.getElementById("barMonthChartDevice4");
+  element.classList.remove("dnone");
+  element.classList.add("dblock");
+
+   let barMonthDevice4Chart = new Chart(document.getElementById('barMonthChartDevice4').getContext('2d'), {
+      type: 'bar',
+      data: {
+        labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13',
+          '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31'],
+        datasets: [{
+          label: 'Кількість спожитої енергії за день',
+          data: [{{ monthDataDevice4_1 }}, {{ monthDataDevice4_2 }}, {{ monthDataDevice4_3 }}, {{ monthDataDevice4_4 }}, {{ monthDataDevice4_5 }}, {{ monthDataDevice4_6 }}, {{ monthDataDevice4_7 }},
+          {{ monthDataDevice4_8 }}, {{ monthDataDevice4_9 }}, {{ monthDataDevice4_10 }}, {{ monthDataDevice4_11 }}, {{ monthDataDevice4_12 }}, {{ monthDataDevice4_13 }}, {{ monthDataDevice4_14 }},
+          {{ monthDataDevice4_15 }}, {{ monthDataDevice4_16 }}, {{ monthDataDevice4_17 }}, {{ monthDataDevice4_18 }}, {{ monthDataDevice4_19 }}, {{ monthDataDevice4_20 }}, {{ monthDataDevice4_21 }},
+          {{ monthDataDevice4_22 }}, {{ monthDataDevice4_23 }}, {{ monthDataDevice4_24 }}, {{ monthDataDevice4_25 }}, {{ monthDataDevice4_26 }}, {{ monthDataDevice4_27 }}, {{ monthDataDevice4_28 }},
+          {{ monthDataDevice4_29 }}, {{ monthDataDevice4_30 }}, {{ monthDataDevice4_31 }}],
+      backgroundColor: [
+      
+      'rgba(255, 159, 64, 0.2)',
+      'rgba(255, 204, 204, 0.2)',
+      'rgba(255, 99, 132, 0.2)',
+      'rgba(54, 162, 235, 0.2)',
+      'rgba(255, 206, 86, 0.2)',
+      'rgba(75, 192, 192, 0.2)',
+      'rgba(153, 102, 255, 0.2)',
+      'rgba(255, 159, 64, 0.2)',      
+      'rgba(255, 99, 132, 0.2)',
+      'rgba(54, 162, 235, 0.2)',
+      'rgba(255, 206, 86, 0.2)',
+      'rgba(75, 192, 192, 0.2)',
+      'rgba(153, 102, 255, 0.2)',
+      'rgba(255, 204, 204, 0.2)',
+      'rgba(255, 99, 132, 0.2)',
+      'rgba(54, 162, 235, 0.2)',
+      'rgba(255, 206, 86, 0.2)',
+      'rgba(255, 99, 132, 0.2)',
+      'rgba(54, 162, 235, 0.2)',
+      'rgba(255, 206, 86, 0.2)',
+      'rgba(75, 192, 192, 0.2)',
+      'rgba(153, 102, 255, 0.2)',
+      'rgba(255, 159, 64, 0.2)',
+      'rgba(255, 204, 204, 0.2)',
+      'rgba(255, 99, 132, 0.2)',
+      'rgba(54, 162, 235, 0.2)',
+      'rgba(255, 206, 86, 0.2)',
+      'rgba(75, 192, 192, 0.2)',
+      'rgba(153, 102, 255, 0.2)',
+      'rgba(255, 159, 64, 0.2)',
+      'rgba(255, 204, 204, 0.2)'
+    ],
+      borderColor: [
+        
+        'rgba(255, 159, 64, 1)',
+        'rgba(255, 153, 153, 1)',
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)',        
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 153, 153, 1)',
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)',
+        'rgba(255, 153, 153, 1)',
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)',
+        'rgba(255, 153, 153, 1)'
+      ],
+        borderWidth: 1
+        }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+});
+}
+
+</script>
+
+{{!-- <script>
+  setInterval (function() {
+    $('#lineHourChartDevice1').load('http://localhost:3000/statistics') 
+    $('#lineHourChartDevice2').load('http://localhost:3000/statistics') 
+    $('#lineHourChartDevice3').load('http://localhost:3000/statistics')     
+    $('#lineHourChartDevice4').load('http://localhost:3000/statistics') 
+    $('#barDayChartDevice1').load('http://localhost:3000/statistics') 
+    $('#barDayChartDevice2').load('http://localhost:3000/statistics') 
+    $('#barDayChartDevice3').load('http://localhost:3000/statistics') 
+    $('#barDayChartDevice4').load('http://localhost:3000/statistics') 
+  }, 120000)
+</script> --}}
+
+</body>
+
+</html>

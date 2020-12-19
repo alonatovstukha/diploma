@@ -1,0 +1,155 @@
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+
+const dataMonth1 = new DataDevice4({data: getRandomInt(10).toString(),  date: '1', day: '0', hours: '13', minutes: '0', seconds: '20'});
+const dataMonth2 = new DataDevice4({data: getRandomInt(10).toString(),  date: '2', day: '1', hours: '13', minutes: '0', seconds: '20'});
+const dataMonth3 = new DataDevice4({data: getRandomInt(10).toString(),  date: '3', day: '2', hours: '13', minutes: '0', seconds: '20'});
+const dataMonth4 = new DataDevice4({data: getRandomInt(10).toString(),  date: '4', day: '3', hours: '13', minutes: '0', seconds: '20'});
+const dataMonth5 = new DataDevice4({data: getRandomInt(10).toString(),  date: '5', day: '4', hours: '13', minutes: '0', seconds: '20'});
+const dataMonth6 = new DataDevice4({data: getRandomInt(10).toString(),  date: '6', day: '5', hours: '13', minutes: '0', seconds: '20'});
+const dataMonth7 = new DataDevice4({data: getRandomInt(10).toString(), date: '7', day: '6', hours: '13', minutes: '0', seconds: '20'});
+const dataMonth8 = new DataDevice4({data: getRandomInt(10).toString(), date: '8', day: '0', hours: '13', minutes: '0', seconds: '20'});
+const dataMonth9 = new DataDevice4({data: getRandomInt(10).toString(), date: '9', day: '1', hours: '13', minutes: '0', seconds: '20'});
+const dataMonth10 = new DataDevice4({data: getRandomInt(10).toString(), date: '10', day: '2', hours: '13', minutes: '0', seconds: '20'});
+const dataMonth11 = new DataDevice4({data: getRandomInt(10).toString(),   date: '11', day: '3', hours: '13', minutes: '0', seconds: '20'});
+const dataMonth12 = new DataDevice4({data: getRandomInt(10).toString(),  date: '12', day: '4', hours: '13', minutes: '0', seconds: '20'});
+const dataMonth13 = new DataDevice4({data: getRandomInt(10).toString(), date: '13', day: '5', hours: '13', minutes: '0', seconds: '20'});
+const dataMonth14 = new DataDevice4({data: getRandomInt(10).toString(),  date: '14', day: '6', hours: '13', minutes: '0', seconds: '20'});
+const dataMonth15 = new DataDevice4({data: getRandomInt(10).toString(),  date: '15', day: '0', hours: '13', minutes: '0', seconds: '20'});
+const dataMonth16 = new DataDevice4({data: getRandomInt(10).toString(),  date: '16', day: '1', hours: '13', minutes: '0', seconds: '20'});
+const dataMonth17 = new DataDevice4({data: getRandomInt(10).toString(),  date: '17', day: '2', hours: '13', minutes: '0', seconds: '20'});
+const dataMonth18 = new DataDevice4({data: getRandomInt(10).toString(), date: '18', day: '3', hours: '13', minutes: '0', seconds: '20'});
+const dataMonth19 = new DataDevice4({data: getRandomInt(10).toString(),  date: '19', day: '4', hours: '13', minutes: '0', seconds: '20'});
+const dataMonth20 = new DataDevice4({data: getRandomInt(10).toString(), date: '20', day: '5', hours: '13', minutes: '0', seconds: '20'});
+const dataMonth21 = new DataDevice4({data: getRandomInt(10).toString(),  date: '21', day: '6', hours: '13', minutes: '0', seconds: '20'});
+const dataMonth22 = new DataDevice4({data: getRandomInt(10).toString(),  date: '22', day: '0', hours: '13', minutes: '0', seconds: '20'});
+const dataMonth23 = new DataDevice4({data: getRandomInt(10).toString(),  date: '23', day: '1', hours: '13', minutes: '0', seconds: '20'});
+const dataMonth24 = new DataDevice4({data: getRandomInt(10).toString(),  date: '24', day: '2', hours: '13', minutes: '0', seconds: '20'});
+const dataMonth25 = new DataDevice4({data: getRandomInt(10).toString(), date: '25', day: '3', hours: '13', minutes: '0', seconds: '20'});
+const dataMonth26 = new DataDevice4({data: getRandomInt(10).toString(),  date: '26', day: '4', hours: '13', minutes: '0', seconds: '20'});
+const dataMonth27 = new DataDevice4({data: getRandomInt(10).toString(), date: '27', day: '5', hours: '13', minutes: '0', seconds: '20'});
+const dataMonth28 = new DataDevice4({data: getRandomInt(10).toString(),  date: '28', day: '6', hours: '13', minutes: '0', seconds: '20'});
+const dataMonth29 = new DataDevice4({data: getRandomInt(10).toString(),  date: '29', day: '0', hours: '13', minutes: '0', seconds: '20'});
+const dataMonth30 = new DataDevice4({data: getRandomInt(10).toString(),  date: '30', day: '1', hours: '13', minutes: '0', seconds: '20'});
+
+// Сохранить новый экземпляр, передав callback
+dataMonth1.save(function (err) {
+  if (err) console.err('MONTH ERROR');
+});
+
+dataMonth2.save(function (err) {
+  if (err) console.err('MONTH ERROR');
+});
+
+dataMonth3.save(function (err) {
+  if (err) console.err('MONTH ERROR');
+});
+
+dataMonth4.save(function (err) {
+  if (err) console.err('MONTH ERROR');
+});
+
+dataMonth5.save(function (err) {
+  if (err) console.err('MONTH ERROR');
+});
+
+dataMonth6.save(function (err) {
+  if (err) console.err('MONTH ERROR');
+});
+
+dataMonth7.save(function (err) {
+  if (err) console.err('MONTH ERROR');
+});
+
+dataMonth8.save(function (err) {
+  if (err) console.err('MONTH ERROR');
+});
+
+dataMonth9.save(function (err) {
+  if (err) console.err('MONTH ERROR');
+});
+
+dataMonth10.save(function (err) {
+  if (err) console.err('MONTH ERROR');
+});
+
+dataMonth11.save(function (err) {
+  if (err) console.err('MONTH ERROR');
+});
+
+dataMonth12.save(function (err) {
+  if (err) console.err('MONTH ERROR');
+});
+
+dataMonth13.save(function (err) {
+  if (err) console.err('MONTH ERROR');
+});
+
+dataMonth14.save(function (err) {
+  if (err) console.err('MONTH ERROR');
+});
+
+dataMonth15.save(function (err) {
+  if (err) console.err('MONTH ERROR');
+});
+
+dataMonth16.save(function (err) {
+  if (err) console.err('MONTH ERROR');
+});
+
+dataMonth17.save(function (err) {
+  if (err) console.err('MONTH ERROR');
+});
+
+dataMonth18.save(function (err) {
+  if (err) console.err('MONTH ERROR');
+});
+
+dataMonth19.save(function (err) {
+  if (err) console.err('MONTH ERROR');
+});
+
+dataMonth20.save(function (err) {
+  if (err) console.err('MONTH ERROR');
+});
+
+dataMonth21.save(function (err) {
+  if (err) console.err('MONTH ERROR');
+});
+
+dataMonth22.save(function (err) {
+  if (err) console.err('MONTH ERROR');
+});
+
+dataMonth23.save(function (err) {
+  if (err) console.err('MONTH ERROR');
+});
+
+dataMonth24.save(function (err) {
+  if (err) console.err('MONTH ERROR');
+});
+
+dataMonth25.save(function (err) {
+  if (err) console.err('MONTH ERROR');
+});
+
+dataMonth26.save(function (err) {
+  if (err) console.err('MONTH ERROR');
+});
+
+dataMonth27.save(function (err) {
+  if (err) console.err('MONTH ERROR');
+});
+
+dataMonth28.save(function (err) {
+  if (err) console.err('MONTH ERROR');
+});
+
+dataMonth29.save(function (err) {
+  if (err) console.err('MONTH ERROR');
+});
+
+dataMonth30.save(function (err) {
+  if (err) console.err('MONTH ERROR');
+});

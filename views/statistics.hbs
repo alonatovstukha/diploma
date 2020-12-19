@@ -1,0 +1,91 @@
+<div class="statistics-header">Споживання електричної енергії за годину</div>
+
+<div class="statistics">
+
+  <div class="radio-buttons">
+    <label>
+      <input name="group1" type="radio" class="hour-device1" onclick="hourDevice1Click()" checked>
+      <span>Точка обліку 1 </span>
+    </label>
+    <label>
+      <input name="group1" type="radio" class="hour-device2" onclick="hourDevice2Click()">
+      <span>Точка обліку 2 </span>
+    </label>
+    <label>
+      <input name="group1" type="radio" class="hour-device3" onclick="hourDevice3Click()">
+      <span>Точка обліку 3 </span>
+    </label>
+    <label>
+      <input name="group1" type="radio" class="hour-device4" onclick="hourDevice4Click()">
+      <span>Точка обліку 4 </span>
+    </label>
+  </div>
+
+  <canvas class="lineHourChart dblock" id="lineHourChartDevice1"></canvas>
+  <canvas class="lineHourChart dnone" id="lineHourChartDevice2"></canvas>
+  <canvas class="lineHourChart dnone" id="lineHourChartDevice3"></canvas>
+  <canvas class="lineHourChart dnone" id="lineHourChartDevice4"></canvas>
+
+
+</div>
+
+<div class="statistics-header">Споживання електричної енергії за день</div>
+
+<div class="statistics">
+
+  <div class="radio-buttons">
+    <label>
+      <input name="group2" type="radio" class="day-device1" onclick="dayDevice1Click()" checked>
+      <span>Точка обліку 1 </span>
+    </label>
+    <label>
+      <input name="group2" type="radio" class="day-device2" onclick="dayDevice2Click()">
+      <span>Точка обліку 2 </span>
+    </label>
+    <label>
+      <input name="group2" type="radio" class="day-device3" onclick="dayDevice3Click()">
+      <span>Точка обліку 3 </span>
+    </label>
+    <label>
+      <input name="group2" type="radio" class="day-device4" onclick="dayDevice4Click()">
+      <span>Точка обліку 4 </span>
+    </label>
+  </div>
+
+  <canvas class="barDayChart dblock" id="barDayChartDevice1"></canvas>
+  <canvas class="barDayChart dnone" id="barDayChartDevice2"></canvas>
+  <canvas class="barDayChart dnone" id="barDayChartDevice3"></canvas>
+  <canvas class="barDayChart dnone" id="barDayChartDevice4"></canvas>
+
+</div>
+
+<div class="statistics-header">Споживання електричної енергії за місяць</div>
+
+<div class="statistics">
+
+
+  <div class="radio-buttons">
+    <label>
+      <input name="group3" type="radio" class="month-device1" onclick="monthDevice1Click()" checked>
+      <span>Точка обліку 1 </span>
+    </label>
+    <label>
+      <input name="group3" type="radio" class="month-device2" onclick="monthDevice2Click()">
+      <span>Точка обліку 2 </span>
+    </label>
+    <label>
+      <input name="group3" type="radio" class="month-device3" onclick="monthDevice3Click()">
+      <span>Точка обліку 3 </span>
+    </label>
+    <label>
+      <input name="group3" type="radio" class="month-device4" onclick="monthDevice4Click()">
+      <span>Точка обліку 4 </span>
+    </label>
+  </div>
+
+  <canvas class="barMonthChart dblock" id="barMonthChartDevice1"></canvas>
+  <canvas class="barMonthChart dnone" id="barMonthChartDevice2"></canvas>
+  <canvas class="barMonthChart dnone" id="barMonthChartDevice3"></canvas>
+  <canvas class="barMonthChart dnone" id="barMonthChartDevice4"></canvas>
+
+</div>

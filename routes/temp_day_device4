@@ -1,0 +1,125 @@
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+
+const dataDay12am = new DataDevice4({data: getRandomInt(10).toString(), year: '2020', hours: '0', minutes: '0', seconds: '20'});
+const dataDay1am = new DataDevice4({data: getRandomInt(10).toString(), year: '2020', hours: '1', minutes: '0', seconds: '20'});
+const dataDay2am = new DataDevice4({data: getRandomInt(10).toString(), year: '2020', hours: '2', minutes: '0', seconds: '20'});
+const dataDay3am = new DataDevice4({data: getRandomInt(10).toString(), year: '2020', hours: '3', minutes: '0', seconds: '20'});
+const dataDay4am = new DataDevice4({data: getRandomInt(10).toString(), year: '2020', hours: '4', minutes: '0', seconds: '20'});
+const dataDay5am = new DataDevice4({data: getRandomInt(10).toString(), year: '2020', hours: '5', minutes: '0', seconds: '20'});
+const dataDay6am = new DataDevice4({data: getRandomInt(10).toString(), year: '2020', hours: '6', minutes: '0', seconds: '20'});
+const dataDay7am = new DataDevice4({data: getRandomInt(10).toString(), year: '2020', hours: '7', minutes: '0', seconds: '20'});
+const dataDay8am = new DataDevice4({data: getRandomInt(10).toString(), year: '2020', hours: '8', minutes: '0', seconds: '20'});
+const dataDay9am = new DataDevice4({data: getRandomInt(10).toString(), year: '2020', hours: '9', minutes: '0', seconds: '20'});
+const dataDay10am = new DataDevice4({data: getRandomInt(10).toString(), year: '2020', hours: '10', minutes: '0', seconds: '20'});
+const dataDay11am = new DataDevice4({data: getRandomInt(10).toString(), year: '2020', hours: '11', minutes: '0', seconds: '20'});
+const dataDay12pm = new DataDevice4({data: getRandomInt(10).toString(), year: '2020', hours: '12', minutes: '0', seconds: '20'});
+const dataDay1pm = new DataDevice4({data: getRandomInt(10).toString(), year: '2020', hours: '13', minutes: '0', seconds: '20'});
+const dataDay2pm = new DataDevice4({data: getRandomInt(10).toString(), year: '2020', hours: '14', minutes: '0', seconds: '20'});
+const dataDay3pm = new DataDevice4({data: getRandomInt(10).toString(), year: '2020', hours: '15', minutes: '0', seconds: '20'});
+const dataDay4pm = new DataDevice4({data: getRandomInt(10).toString(), year: '2020', hours: '16', minutes: '0', seconds: '20'});
+const dataDay5pm = new DataDevice4({data: getRandomInt(10).toString(), year: '2020', hours: '17', minutes: '0', seconds: '20'});
+const dataDay6pm = new DataDevice4({data: getRandomInt(10).toString(), year: '2020', hours: '18', minutes: '0', seconds: '20'});
+const dataDay7pm = new DataDevice4({data: getRandomInt(10).toString(), year: '2020', hours: '19', minutes: '0', seconds: '20'});
+const dataDay8pm = new DataDevice4({data: getRandomInt(10).toString(), year: '2020', hours: '20', minutes: '0', seconds: '20'});
+const dataDay9pm = new DataDevice4({data: getRandomInt(10).toString(), year: '2020', hours: '21', minutes: '0', seconds: '20'});
+const dataDay10pm = new DataDevice4({data: getRandomInt(10).toString(), year: '2020', hours: '22', minutes: '0', seconds: '20'});
+const dataDay11pm = new DataDevice4({data: getRandomInt(10).toString(), year: '2020', hours: '23', minutes: '0', seconds: '20'});
+
+// Сохранить новый экземпляр, передав callback
+dataDay12am.save(function (err) {
+  if (err) console.err('DAY ERROR');
+});
+
+dataDay1am.save(function (err) {
+  if (err) console.err('DAY ERROR');
+});
+
+dataDay2am.save(function (err) {
+  if (err) console.err('DAY ERROR');
+});
+
+dataDay3am.save(function (err) {
+  if (err) console.err('DAY ERROR');
+});
+
+dataDay4am.save(function (err) {
+  if (err) console.err('DAY ERROR');
+});
+
+dataDay5am.save(function (err) {
+  if (err) console.err('DAY ERROR');
+});
+
+dataDay6am.save(function (err) {
+  if (err) console.err('DAY ERROR');
+});
+
+dataDay7am.save(function (err) {
+  if (err) console.err('DAY ERROR');
+});
+
+dataDay8am.save(function (err) {
+  if (err) console.err('DAY ERROR');
+});
+
+dataDay9am.save(function (err) {
+  if (err) console.err('DAY ERROR');
+});
+
+dataDay10am.save(function (err) {
+  if (err) console.err('DAY ERROR');
+});
+
+dataDay11am.save(function (err) {
+  if (err) console.err('DAY ERROR');
+});
+
+dataDay12pm.save(function (err) {
+  if (err) console.err('DAY ERROR');
+});
+
+dataDay1pm.save(function (err) {
+  if (err) console.err('DAY ERROR');
+});
+
+dataDay2pm.save(function (err) {
+  if (err) console.err('DAY ERROR');
+});
+
+dataDay3pm.save(function (err) {
+  if (err) console.err('DAY ERROR');
+});
+
+dataDay4pm.save(function (err) {
+  if (err) console.err('DAY ERROR');
+});
+
+dataDay5pm.save(function (err) {
+  if (err) console.err('DAY ERROR');
+});
+
+dataDay6pm.save(function (err) {
+  if (err) console.err('DAY ERROR');
+});
+
+dataDay7pm.save(function (err) {
+  if (err) console.err('DAY ERROR');
+});
+
+dataDay8pm.save(function (err) {
+  if (err) console.err('DAY ERROR');
+});
+
+dataDay9pm.save(function (err) {
+  if (err) console.err('DAY ERROR');
+});
+
+dataDay10pm.save(function (err) {
+  if (err) console.err('DAY ERROR');
+});
+
+dataDay11pm.save(function (err) {
+  if (err) console.err('DAY ERROR');
+});
