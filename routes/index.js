@@ -29,34 +29,23 @@ let hourDataDevice2;
 let hourDataDevice3;
 let hourDataDevice4;
 
-function getRandomInt(max) {
-  return Math.floor(Math.random() * Math.floor(max));
-}
-
-
-
-// SerialPort.list().then(
-//   ports => ports.forEach(console.log),
-//   err => console.error(err)
-// )
-
 const port = new SerialPort('COM1', function (err) {
   if (err) {
     return console.log('Error with opening: ', err.message)
   }
 })
 
-port.write('Hello from Server', function(err) {
-  if (err) {
-    return console.log('Error on write: ', err.message)
-  }
-  console.log('message written')
+
+port.on('data', function (serialData) {
+  console.log('Data:', serialData);
+  let newData = new DataDevice1({ data: serialData});
+  // Сохранить новый экземпляр, передав callback
+  newData.save(function (err) {
+    if (err) console.err('HOUR ERROR');
+  });
 })
 
-//????????????????
-port.on('data', function (data) {
-  console.log('Data:', data)
-})
+
 
 
 function aggregateHour(metrics) {
